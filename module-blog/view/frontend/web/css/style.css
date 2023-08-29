@@ -1,0 +1,29 @@
+.container {
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+
+.left-category {
+    width: 300px;
+    height: 500px;
+    background-color: #2ca02c;
+    float: left;
+    margin-right: 20px;
+}
+
+.main-blog {
+
+    width: 1200px;
+    height: 500px;
+    background-color: red;
+    margin-left: 20px;
+}
+li{
+
+}
+.items{
+    
+}
+.pages-items{
+
+}

@@ -1,0 +1,84 @@
+{
+    "declarative_table1": {
+        "column": {
+            "id_column": true,
+            "severity": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "thuongdz": {
+        "column": {
+            "id_column": true,
+            "severity": true,
+            "thuongdz_id": true,
+            "name": true,
+            "age": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "su1_blog": {
+        "column": {
+            "blog_id": true,
+            "name": true,
+            "short_description": true,
+            "description": true,
+            "status": true,
+            "gallery_id": true,
+            "publish_date_from": true,
+            "publish_date_to": true,
+            "category_id": true,
+            "tag_id": true,
+            "url_key": true,
+            "product_id": true,
+            "gallery": true
+        },
+        "constraint": {
+            "SU1_BLOG_BLOG_ID_SU1_TAG_TAG_ID": true,
+            "SU1_BLOG_GALLERY_ID_SU1_GALLERY_GALLERY_ID": true,
+            "PRIMARY": true
+        }
+    },
+    "su1_categories_detail": {
+        "column": {
+            "categories_detail_id": true,
+            "name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "su1_categories": {
+        "column": {
+            "blog_id": true,
+            "categories_id": true
+        },
+        "constraint": {
+            "FK_A21DD1817948D56CD2C6F826F9900AEE": true,
+            "SU1_CATEGORIES_BLOG_ID_SU1_BLOG_BLOG_ID": true
+        }
+    },
+    "su1_tag": {
+        "column": {
+            "tag_id": true,
+            "name": true,
+            "blog_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SU1_TAG_BLOG_ID_SU1_BLOG_BLOG_ID": true
+        }
+    },
+    "su1_gallery": {
+        "column": {
+            "gallery_id": true,
+            "url_image": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

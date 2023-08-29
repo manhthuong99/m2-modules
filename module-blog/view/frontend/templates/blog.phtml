@@ -1,0 +1,151 @@
+<?php
+//$url = $block->get()."pub/media/sm/tmp/image/";
+$mediaUrl = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . "sm/tmp/image/";
+$catergories = $block->loadCategories();
+?>
+<style>
+    body, h1, h2, h3, h4, h5 {
+        font-family: "Raleway", sans-serif
+    }
+
+    .pagination {
+        display: inline-block;
+        float: left;
+    }
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    .pagination a:hover {
+        color: black;
+        background-color: darkseagreen;
+        text-decoration: none;
+    }
+
+    .img {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .topnav {
+        background-color: lightgrey;
+    }
+
+    .search button {
+        height: 35px;
+        margin-left: auto;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+    <!-- Header -->
+    <header class="w3-container w3-center w3-padding-32">
+        <h1><b>SMART BLOG</b></h1>
+        <p>Welcome to the blog of <span class="w3-tag">Thuongnm2</span></p>
+    </header>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+</div>
+<div class="w3-row">
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+        <!-- Blog entry -->
+        <?php foreach ($block->loadBlogs() as $value): ?>
+            <div class="w3-card-4 w3-margin w3-white">
+                <div class="img">
+                    <a class="" href="blogdetail?id=<?= $value['blog_id'] ?>">
+                        <img src="<?= $mediaUrl . $value['gallery'] ?>"
+                             alt="Nature" width="100%"></a>
+                </div>
+                <div class="w3-container">
+                    <h3><a href="blogdetail?id=<?= $value['blog_id'] ?>"><b><?= $value['name'] ?></b></a></h3>
+                    <h5><span class="w3-opacity"><?= $value['publish_date_from'] ?></span></h5>
+                </div>
+
+                <div class="w3-container">
+                    <p><?= $value['short_description'] ?></p>
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <p><a href="blogdetail?id=<?= $value['blog_id'] ?>"
+                                  class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></a></p>
+                        </div>
+                        <div class="w3-col m4 w3-hide-small">
+                            <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span
+                                            class="w3-tag">0</span></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        <?php endforeach; ?>
+        <!-- END BLOG ENTRIES -->
+    </div>
+
+    <!-- Introduction menu -->
+    <div class="w3-col l4">
+        <!-- Posts -->
+        <div class="w3-card w3-margin">
+            <form action="index">
+                <table>
+                    <tr>
+                        <td class="search">
+                            <input type="text" placeholder="Search.." name="name">
+                        </td>
+                        <td class="search">
+                            <button type="submit">Search</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <ul class="w3-ul w3-hoverable w3-white">
+                <?php foreach ($catergories as $value): ?>
+                    <li class="w3-padding-16">
+                        <span class="w3-large"><?= $value['name'] ?></span><br>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <hr>
+
+        <!-- Labels / tags -->
+        <div class="w3-card w3-margin">
+            <div class="w3-container w3-padding">
+                <h4>Tags</h4>
+            </div>
+            <div class="w3-container w3-white">
+                <p>
+                    <?php foreach ($block->loadTags() as $value): ?>
+                        <a href="#"><span
+                                    class="w3-tag w3-light-grey w3-small w3-margin-bottom"><?= $value['name'] ?></span></a>
+                    <?php endforeach; ?>
+                </p>
+            </div>
+        </div>
+
+        <!-- END Introduction Menu -->
+    </div>
+
+    <!-- END GRID -->
+</div>
+<br>
+
+<!-- END w3-content -->
+</div>
+
+
+</body>

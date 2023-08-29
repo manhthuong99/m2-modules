@@ -1,0 +1,24 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$FormKey = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+?>
+<div class="main-blog">
+    <div class="container">
+        <!--    <div class="product-listing"><p>Products Listing</p></div>-->
+        <!--    <div class="sub-category"><p>Sub category lists</p></div>-->
+        <h1 class="tillte">PRACTICE 1</h1>
+        <form method="post" action="<?= $block->getUrl('helloworld/index/create'); ?>">
+            <input name="form_key" type="hidden" value="<?php echo $FormKey->getFormKey();?>">
+            <div>
+                <input name="name" type="text" class="input1" placeholder="Enter your name" required>
+            </div>
+
+            <div>
+                <input name="age" type="number" class="input1" placeholder="Enter your age" required>
+            </div>
+            <div>
+                <input type="submit" class="btn" value="Create" name="create">
+            </div>
+        </form>
+    </div>
+</div>

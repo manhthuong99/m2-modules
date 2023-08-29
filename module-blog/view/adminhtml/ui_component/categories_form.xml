@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">categories_form.block_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="SM\HelloWorld\Block\Adminhtml\Categories\Edit\SaveButton"/>
+            <button name="delete" class="SM\HelloWorld\Block\Adminhtml\Categories\Edit\DeleteButton"/>
+            <button name="back" class="SM\HelloWorld\Block\Adminhtml\Categories\Edit\BackButton"/>
+        </buttons>
+        <namespace>categories_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>categories_form.categories_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="categories_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="sumup/category/save"/>
+        </settings>
+        <dataProvider class="SM\HelloWorld\Model\Categories\DataProvider" name="categories_form_data_source">
+            <settings>
+                <requestFieldName>categories_id</requestFieldName>
+                <primaryFieldName>categories_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="su1_categories">
+        <settings>
+            <label/>
+        </settings>
+        <field name="categories_id" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">su1_categories</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>categories_id</dataScope>
+            </settings>
+        </field>
+        <field name="status" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">su1_categories</item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable Category</label>
+                <dataScope>status</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">su1_categories</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Category name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+        <field name="parent_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">SM\HelloWorld\Model\Source\ParentCategory</item>
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">su1_blog</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Parent category</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

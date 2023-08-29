@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="SM_HelloWorld::css/style.css" rel="stylesheet" type="text/css"/>
+        <css src="SM_HelloWorld::css/template.css" rel="stylesheet" type="text/css"/>
+        <css src="SM_HelloWorld::css/google-font.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <referenceContainer name="footer" remove="true"/>
+    <referenceContainer name="content">
+        <block class="SM\HelloWorld\Block\Blog" name="helloworld_display"
+               template="SM_HelloWorld::blogdetail.phtml"/>
+    </referenceContainer>
+</page>

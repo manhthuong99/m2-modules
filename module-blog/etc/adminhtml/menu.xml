@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SM_HelloWorld::blog" title="Blog" module="SM_HelloWorld" sortOrder="12" resource="SM_HelloWorld::blog"/>
+        <add id="SM_HelloWorld::configuration" title="Configuration" module="SM_HelloWorld" sortOrder="1" parent="SM_HelloWorld::blog"
+             action="adminhtml/system_config/edit/section/helloworld" resource="SM_HelloWorld::configuration"/>
+        <add id="SM_HelloWorld::list" title="Blogs" module="SM_HelloWorld" sortOrder="2" action="sumup/blog/index" resource="SM_HelloWorld::list" parent="SM_HelloWorld::blog"/>
+        <add id="SM_HelloWorld::category" title="Categories" module="SM_HelloWorld" sortOrder="3" action="sumup/Category/index" resource="SM_HelloWorld::category" parent="SM_HelloWorld::blog"/>
+    </menu>
+</config>

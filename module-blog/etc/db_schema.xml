@@ -1,0 +1,87 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="thuongdz">
+<!--    <table name="thuongdz" onCreate="migrateDataFromAnotherTable(thuongdz1)">-->
+        <column xsi:type="int" name="thuongdz_id" padding="10" unsigned="true" nullable="false" comment="Entity Id" identity="true"/>
+        <column xsi:type="varchar" name="name" length="50"  nullable="false" comment="name"/>
+        <column xsi:type="int" name="age" padding="20" unsigned="true" nullable="false" comment="age"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="thuongdz_id"/>
+        </constraint>
+    </table>
+    <table name="su1_blog">
+        <column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="name" length="255"  nullable="false"/>
+        <column xsi:type="varchar" name="short_description" length="255"  nullable="false"/>
+        <column xsi:type="text" name="description"   nullable="false"/>
+        <column xsi:type="smallint" name="status" padding="6" unsigned="false" nullable="false" identity="false"
+                default="1"/>
+        <column xsi:type="varchar" name="gallery" length="500"  nullable="false"/>
+        <column xsi:type="datetime" name="publish_date_from"  nullable="true"/>
+        <column xsi:type="datetime" name="publish_date_to"  nullable="true"/>
+        <column xsi:type="varchar" name="url_key" length="255"  nullable="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_id"/>
+        </constraint>
+    </table>
+    <table name="su1_categories">
+        <column xsi:type="int" name="categories_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Category ID"/>
+        <column xsi:type="int" name="parent_id" padding="10" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Parent Category ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Category name"/>
+        <column xsi:type="smallint" name="status" padding="10" unsigned="true" nullable="false"
+                comment="Category status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="categories_id"/>
+        </constraint>
+    </table>
+    <table name="su1_blog_cate">
+        <column xsi:type="int" name="blog_categories_id" padding="10" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" />
+        <column xsi:type="int" name="categories_id" padding="10" unsigned="true" nullable="false"/>
+        <constraint xsi:type="foreign" referenceId="FK_CATEGORIES_CATEGORIES_DETAIL"
+                    table="su1_blog_cate" column="categories_id" referenceTable="su1_categories"
+                    referenceColumn="categories_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FK_CATEGORIES_BLOG"
+                    table="su1_blog_cate" column="blog_id" referenceTable="su1_blog"
+                    referenceColumn="blog_id" onDelete="CASCADE"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_categories_id"/>
+        </constraint>
+    </table>
+    <table name="su1_tag">
+        <column xsi:type="int" name="tag_id" padding="10" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="name" length="255"  nullable="false"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="tag_id"/>
+        </constraint>
+    </table>
+    <table name="su1_blog_tag">
+        <column xsi:type="int" name="blog_tag_id" padding="10" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="tag_id" padding="10" unsigned="true" nullable="true"/>
+        <column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="true"/>
+        <constraint xsi:type="foreign" referenceId="FK_BLOG"
+                    table="su1_blog_tag" column="blog_id" referenceTable="su1_blog" referenceColumn="blog_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="FK_TAG"
+                    table="su1_blog_tag" column="tag_id" referenceTable="su1_tag" referenceColumn="tag_id" onDelete="CASCADE"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_tag_id"/>
+        </constraint>
+    </table>
+    <table name="su1_blog_product">
+        <column xsi:type="int" name="blog_product_id" padding="10" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false"/>
+        <column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" comment="Blog id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY_BLOG_TAG">
+            <column name="product_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_BLOG_PRODUCT_BLOG" table="su1_blog_product"
+                    column="blog_id" referenceTable="su1_blog" referenceColumn="blog_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="BLOG_PRODUCT_PRODUCT" table="su1_blog_product"
+                    column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_product_id"/>
+        </constraint>
+    </table>
+</schema>

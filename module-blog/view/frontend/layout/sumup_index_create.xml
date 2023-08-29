@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="SM_HelloWorld::css/local.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <referenceContainer name="header.container" remove="true"/>
+    <referenceContainer name="footer" remove="true"/>
+    <referenceContainer name="store.menu" remove="true"/>
+    <referenceContainer name="page-wrapper" remove="true"/>
+    <referenceContainer name="modals-wrapper" remove="true"/>
+    <referenceContainer name="column" remove="true"/>
+    <referenceContainer name="copyright" remove="true"/>
+    <referenceContainer name="content">
+        <block class="SM\HelloWorld\Block\Display" name="helloworld_index_list" template="SM_HelloWorld::footer.phtml"/>
+    </referenceContainer>
+</page>
