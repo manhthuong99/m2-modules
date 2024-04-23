@@ -1,6 +1,7 @@
 {
     "name": "manhthuong99/module-momo-wallet",
     "description": "Momo Wallet Payment Gateway",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Eric Nguyen",
