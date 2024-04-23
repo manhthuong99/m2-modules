@@ -2,6 +2,7 @@
     "name": "manhthuong99/module-momo-wallet",
     "description": "Momo Wallet Payment Gateway",
     "version": "1.0.0",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "Eric Nguyen",
@@ -9,11 +10,8 @@
         }
     ],
     "type": "magento2-module",
-    "license": [
-        "OSL-3.0",
-        "AFL-3.0"
-    ],
     "minimum-stability": "dev",
+    "require": {},
     "autoload": {
         "files": [
             "registration.php"
