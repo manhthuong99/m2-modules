@@ -1,0 +1,27 @@
+"Transaction Type","Transaction Type"
+"Transaction ID","Transaction ID"
+"Response Code","Response Code"
+"Approve Messages","Approve Messages"
+"Something went wrong white execute.","Something went wrong white execute."
+Success,Success
+"Transaction has been declined. Please try again later.","Transaction has been declined. Please try again later."
+"Sorry, but something went wrong.","Sorry, but something went wrong."
+"Sorry, but something went wrong","Sorry, but something went wrong"
+"IPN ""%1""","IPN ""%1"""
+"We can't convert base currency to %1. Please setup currency rates.","We can't convert base currency to %1. Please setup currency rates."
+"Can't read response from Mo","Can't read response from Mo"
+"Something went wrong when get pay url.","Something went wrong when get pay url."
+"You will be redirected to the Momo website.","You will be redirected to the Momo website."
+"Continue with Momo","Continue with Momo"
+Momo,Momo
+Enabled,Enabled
+Title,Title
+"Partner Code","Partner Code"
+"Access Key","Access Key"
+"Secret Key","Secret Key"
+"Merchant Name","Merchant Name"
+"Sandbox Mode","Sandbox Mode"
+"Credit memo prefix","Credit memo prefix"
+"Payment from Applicable Countries","Payment from Applicable Countries"
+"Payment from Specific Countries","Payment from Specific Countries"
+"Sort Order","Sort Order"

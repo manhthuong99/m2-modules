@@ -1,0 +1,23 @@
+{
+    "name": "manhthuong99/module-momo-wallet",
+    "description": "Momo Wallet Payment Gateway",
+    "authors": [
+        {
+            "name": "Eric Nguyen",
+            "email": "mthuong03@gmail.com"
+        }
+    ],
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "ManhThuong99\\MomoWallet\\": ""
+        }
+    }
+}
